@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <title>Document</title>
+</head>
+<body>
+  <section class="home-section">
+    <div id="comment-box"></div>
+    <form id="comment-form" class="comment-form">
+      <div class="comment-form__container">
+        <div class="comment-form__group">
+          <input class="comment-form__input comment-form__input--author" type="text" id="author" name="author" maxlength="8" placeholder="작성자" required>
+          <input class="comment-form__input comment-form__input--password" type="password" id="password" name="password" placeholder="비밀번호 4자리" maxlength="4" minlength="4" required>
+        </div>
+        <div class="comment-form__group">
+          <input class="comment-form__input comment-form__input--comment" type="text" id="comment" name="comment" placeholder="댓글을 입력하세요" maxlength="40" required>
+        </div>
+      </div>
+      <button type="submit" class="comment-form__button">전송</button>
+    </form>  
+  </section>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
