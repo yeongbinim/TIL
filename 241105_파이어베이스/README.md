@@ -1,3 +1,9 @@
+# JS로 Firebase 조작하기
+
+사용자가 form을 제출하거나, 버튼을 누르거나 하는 이벤트가 발생했을때, JavaScript로 Firebase 저장소에 접근하여 데이터를 조회/삭제/수정하는 기능을 개발했다.
+
+
+
 ### firebase 제공 함수로 CRUD하기
 
 파이어베이스에서는 javascript 개발자를 위해 아래와 같은 함수들을 제공한다.
