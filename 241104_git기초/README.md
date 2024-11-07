@@ -13,7 +13,7 @@
   - **Stage(Staging area)**: 눈에 보이지 않는 단계로 버전으로 만들 파일들이 대기하는 중간 영역이다. `git add`
   - **Repository**: Stage에 대기하고 있던 파일들을 버전으로 만들어 저장하는 영역이다. `git commit`
 
-  결국 현재 Working Directory에서 `git add`를 하면 파일이 Staging area로 이동하고, `git commit`을 하면 Staging area에 있는 파일들과 이전 스냅샷을 비교하여 변경사항이 Repository에 저장되는 것이다.
+  결국 현재 **Working Directory**에서 `git add`를 하면 파일이 **Staging area**로 이동하고, `git commit`을 하면 Staging area에 있는 파일들의 변경사항이 **Repository**에 반영되는 것이다.
 
 - **git이 버전을 관리하는 방법 2 - 상태:**
 
@@ -47,7 +47,7 @@ init, add, pull, push, remote는 생략
 
   ```shell
   $ git commit
-  		: 현재 상태의 스냅샷을 기록한다.
+      : 현재 상태의 스냅샷을 기록한다.
     -m: "메시지"를 같이 입력하면 vi에디터 안거치고 바로 커밋한다.
     -a: add와 동시에 commit을 진행한다.
   ```
@@ -60,9 +60,9 @@ init, add, pull, push, remote는 생략
 
   ```shell
   $ git branch
-  		: 로컬 브랜치 목록을 보여주고, "브랜치이름"을 같이 입력하면 브랜치를 생성한다.
-  	-r: 원격 브랜치 목록을 보여준다.
-  	-a: 원격과 로컬 브랜치 모두의 목록을 보여준다.
+      : 로컬 브랜치 목록을 보여주고, "브랜치이름"을 같이 입력하면 브랜치를 생성한다.
+    -r: 원격 브랜치 목록을 보여준다.
+    -a: 원격과 로컬 브랜치 모두의 목록을 보여준다.
   ```
 
   - 브랜치는 특정 커밋에 대한 참조(reference)일 뿐이다.
@@ -72,8 +72,8 @@ init, add, pull, push, remote는 생략
 
   ```shell
   $ git switch
-  		: "브랜치이름"을 같이 입력하면 해당 브랜치로 이동한다.
-  	-c: "브랜치이름"을 같이 입력하면 브랜치를 생성하여 해당 브랜치로 이동한다.
+      : "브랜치이름"을 같이 입력하면 해당 브랜치로 이동한다.
+    -c: "브랜치이름"을 같이 입력하면 브랜치를 생성하여 해당 브랜치로 이동한다.
   ```
 
   - switch는 브랜치의 이동을 위한 명령어이다.
