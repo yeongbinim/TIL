@@ -1,5 +1,6 @@
 import FirebaseRepository from "./FirebaseRepository.js";
+import Request from "./RequestRepository.js";
 
 export function commentRepository() {
-  return new FirebaseRepository("comments");
+  return new Request("comments");
 }
