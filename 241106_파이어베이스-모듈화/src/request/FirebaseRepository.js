@@ -14,7 +14,7 @@ export default class FirebaseRepository extends RepositoryInterface {
   }
 
   async save(obj) {
-    addDoc(collection(db, this.#collectionName), obj);
+    await addDoc(collection(db, this.#collectionName), obj);
   }
 
   async findAll() {
@@ -29,10 +29,10 @@ export default class FirebaseRepository extends RepositoryInterface {
   }
   
   async updateById(id, obj) {
-    updateDoc(doc(db, this.#collectionName, id), obj);
+    await updateDoc(doc(db, this.#collectionName, id), obj);
   }
 
   async deleteById(id) {
-    deleteDoc(doc(db, this.#collectionName, id));
+    await deleteDoc(doc(db, this.#collectionName, id));
   }
 }

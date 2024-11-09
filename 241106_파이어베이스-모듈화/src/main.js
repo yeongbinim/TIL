@@ -1,4 +1,4 @@
-import { deleteComment, submitCommentForm, getAllComments } from "./eventListener/comments.js";
+import { deleteComment, submitCommentForm, getAllComments } from "./eventHandler/comments.js";
 import { renderCommentSection } from "./render/comments.js";
 
 window.addEventListener('DOMContentLoaded', (event) => {

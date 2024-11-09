@@ -1,6 +1,7 @@
 import { formatDate } from '../utils/date.js';
 import { commentRepository } from '../request/dependency.js';
 import { renderComments } from '../render/comments.js';
+import { generateHash } from '../utils/crypt.js';
 
 const repsoitory = commentRepository();
 
@@ -18,7 +19,7 @@ export async function submitCommentForm(event) {
   formData.forEach((value, key) => {
     dataObject[key] = value;  // 폼 데이터를 객체에 할당
   });
-
+  dataObject.password = await generateHash(dataObject.password); // 비밀번호 해싱
   dataObject.date = formatDate(new Date());  // 현재 날짜와 시간 추가
 
   await repsoitory.save(dataObject);
@@ -30,8 +31,8 @@ export async function deleteComment(event) {
   const deleteButton = event.target.closest('.comment-box__button--delete');
   if (deleteButton) {
     const id = deleteButton.getAttribute('data-id'); // 데이터 ID 추출
-    const password = deleteButton.getAttribute('data-password'); // 데이터 ID 추출
-    const userInput = prompt("댓글을 삭제하려면 '비밀번호'를 입력하세요."); // 사용자 입력 요청
+    const password = deleteButton.getAttribute('data-password'); // 데이터 비번 추출
+    const userInput = await generateHash(prompt("댓글을 삭제하려면 '비밀번호'를 입력하세요.")); // 사용자 입력 요청
     if (userInput === password) {
       await repsoitory.deleteById(id);
       await getAllComments();
