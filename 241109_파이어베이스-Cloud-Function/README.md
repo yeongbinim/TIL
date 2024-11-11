@@ -20,6 +20,8 @@ Netlify나 Vercel을 사용해서 해결하기 보다는, 뭔가 firebase 자체
 
 그래서 Cloud Functions 사용 결정!
 
+<img width="1500" src="https://github.com/user-attachments/assets/f396b9b8-c9a1-43fc-842d-6c7588aeef2d">
+위와 같이 변경할 예정이다!
 
 
 ## Cloud Functions를 위한 설정
