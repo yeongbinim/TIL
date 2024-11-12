@@ -33,9 +33,7 @@ CLI환경에서 사용자로부터 정수 2개와 연산자를 입력받아 연�
 <img width="600" alt="스크린샷 2024-11-12 오후 9 56 45" src="https://github.com/user-attachments/assets/3728b500-4d66-48c9-b6ad-72a322f17520">
 </div>
 
-<div align="center">
-<a src="./src/calc1/">[calc1 코드 보러가기]</a>
-</div>
+[[calc1 코드 보러가기]](./src/calc1/)
 
 구현한 프로그램의 결과물이다.
 
@@ -148,9 +146,7 @@ Level2에서는 Calculator 클래스를 추가적으로 구현해야 한다.
 <img width="600" alt="스크린샷 2024-11-12 오후 9 32 45" src="https://github.com/user-attachments/assets/a6d3cf30-a79c-468f-9a5d-f2efd3a79454">
 </div>
 
-<div align="center">
-<a src="./src/calc2/">[calc2 코드 보러가기]</a>
-</div>
+[[calc2 코드 보러가기]](./src/calc2/)
 
 위는 내가 구현한 계산기의 실행 결과이다.
 
@@ -311,9 +307,7 @@ public class AddOperation<T extends Number> implements Operation<T> {
 <img width="600" alt="스크린샷 2024-11-12 오후 11 14 49" src="https://github.com/user-attachments/assets/ba90819e-e31d-4829-a953-47188284ec44">
 </div>
 
-<div align="center">
-<a src="./src/calc3/">[calc3 코드 보러가기]</a>
-</div>
+[[calc3 코드 보러가기]](./src/calc3/)
 
 위는 내가 구현한 level3 계산기의 실행 결과이다.
 
