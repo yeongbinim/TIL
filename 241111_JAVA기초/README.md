@@ -223,42 +223,9 @@ Calculator의 기능이 calculate 메서드 하나밖에 없는데... 이러면 
 
 main 함수를 작성하긴 했는데 지금은 일단 주먹구구식으로 작성했기 때문에... 좀 더 정제하고 내일 이어서 작성해야 겠다.
 
-지금으로써는 사용자로부터 연산자를 입력받았을때 관리하는 enum도 있으면 좋을 것 같다는 생각이다.
-
-
-
 ## 마치며
 
 계산기 프로그램을 만드는데 이렇게까지 각각 연산을 Class로 만들어야 되나? 싶기도 하다.
-
-그냥 이런 enum하나 만들어두면 연산하는데 편할 것 같은데..
-
-```java
-import java.util.function.BiFunction;
-
-public enum CalculatorType {
-    ADD((value1, value2) -> value1.doubleValue() + value2.doubleValue()),
-    SUBTRACT((value1, value2) -> value1.doubleValue() - value2.doubleValue()),
-    MULTIPLY((value1, value2) -> value1.doubleValue() * value2.doubleValue()),
-    DIVIDE((value1, value2) -> {
-        if (value2.doubleValue() == 0)
-          throw new ArithmeticException("0으로 나눌 수 없어");
-        return value1.doubleValue() / value2.doubleValue();
-    });
-
-    private BiFunction<Number, Number, Double> expression;
-
-    CalculatorType(BiFunction<Number, Number, Double> expression) {
-        this.expression = expression;
-    }
-
-    public double calculate(Number value1, Number value2) {
-        return expression.apply(value1, value2);
-    }
-}
-```
-
-이게 더 관리하기 편하지 않나...?
 
 답이 없으니깐 이거 참...
 
@@ -266,22 +233,7 @@ public enum CalculatorType {
 
 지금 생각으로는 그냥 객체지향 실습하라고 굳이 이런 과제를 낸거 같다.
 
-원래 나라면 후자로 진행할 것 같긴 하다.
-
-
-## (추가됨) 해보고 비교해보자
-
-아 누워서 아무리 생각해도 이게 더 편한거 같은데, 객체지향은 어쩔때 더 좋은지 비교해보기 위해서 일단 작성해봤다.
-[[변경된 커밋 보기]](https://github.com/yeongbinim/TIL/commit/be128715f324f35fef366fc2546a3f0957db9dcc)
-
-- 코드가 더 간결해지고, 각 연산자 기호가 어떤 연산과 관련되어 있는지 명확한 연관관계가 보인다.
-- 각 연산들이 싱글턴 패턴으로 관리가 되고 있기 때문에, 메모리 효율도 좋다.
-- 새로운 연산을 추가하거나 기존 연산을 변경하고자 할때 CalculatorType enum 만 수정하면 되기 때문에, OCP도 준수하고 있다.
-
-<br/>
-
-연산을 수행하는 동안 다른 객체들과의 상호작용이 필요한 경우에는 아무래도 전자의 방식이 수월할 것이다.
-하지만, 지금처럼 모든 연산이 유사하고 간단한 구조를 가질 때에는 후자의 방식이 더 수월한 것 같다.
+연산을 수행하는 동안 다른 객체들과의 상호작용이 필요한 경우, 혹은 계속 기능이 확장되는 경우에는 아무래도 수월할 것이다.
 
 내일은 계산기를 CLI가 아니라 Java Swing? 으로 GUI로 받는걸 해보고
 계산기에 추가기능을 계속 넣어보겠다.
