@@ -20,6 +20,7 @@
   - [제네릭으로 타입 안정성 확보하기](#제네릭으로-타입-안정성-확보하기)
 - [Level3: enum계산기](#level3-enum계산기)
   - [enum으로 묶기](#enum으로-묶기)
+  - [람다식을 이용한 사칙연산](#람다식을-이용한-사칙연산)
   - [stream으로 필터링하기](#stream으로-필터링하기)
   - [실수를 검증하는 정규표현식](#실수를-검증하는-정규표현식)
 - [아직 해결 못한 점](#아직-해결-못한-점)
@@ -53,7 +54,7 @@ CLI환경에서 사용자로부터 정수 2개와 연산자를 입력받아 연�
 
 <br/>
 
-정규 표현식은 **'문자열에서 원하는 부분을 일치시킨다'**는 명확한 1가지의 책임을 가지고 있고,
+정규 표현식은 '**문자열에서 원하는 부분을 일치시킨다**'는 명확한 1가지의 책임을 가지고 있고,
 
 일치시킨 부분을 치환하거나, 검증하거나, 추출하는 일은 전문가이며 거의 모든 언어가 정규 표현식을 지원하기 때문에 익숙해지면 이것만큼 편한 것도 없다.
 
@@ -400,30 +401,28 @@ public enum OperatorType {
 
 저 ADD, SUBTRACT, MULTIPLY, ... 들은 각각이 인스턴스인 셈이다.
 
-그래서 고유할 수 있고, '열거된 싱글톤 인스턴스' 이게 내가 오늘 경험한 인스턴스 소감이다.
+그래서 고유할 수 있고, '열거된 싱글톤 인스턴스' 이게 내가 오늘 경험한 enum 소감이다.
 
 할 수 있는 많은 것들이 떠올랐다.
 
 ```java
-import java.util.function.BiFunction;
-
 public enum OperatorType {
-    ADD('+', (value1, value2) -> value1.doubleValue() + value2.doubleValue()),
-    SUBTRACT('-', (value1, value2) -> value1.doubleValue() - value2.doubleValue()),
-    MULTIPLY('*', (value1, value2) -> value1.doubleValue() * value2.doubleValue()),
-    DIVIDE('/', (value1, value2) -> value1.doubleValue() / value2.doubleValue()),
-    REMAINDER('%', (value1, value2) -> value1.doubleValue() % value2.doubleValue());
+    ADD('+', new AddOperation<>()),
+    SUBTRACT('-', new SubstractOperation<>()),
+    MULTIPLY('*', new MultiplyOperation<>()),
+    DIVIDE('/', new DevideOperation<>()),
+    REMAINDER('%', new RemainderOperation<>());
 
-    private final BiFunction<Number, Number, Double> expression;
     private final char operator;
+    private final Operation<Number> operation;
 
-    OperatorType(char operator, BiFunction<Number, Number, Double> expression) {
+    OperatorType(char operator, Operation<Number> operation) {
         this.operator = operator;
-        this.expression = expression;
+        this.operation = operation;
     }
 
     public double operate(Number value1, Number value2) {
-        return expression.apply(value1, value2);
+        return operation.operate(value1, value2);
     }
 
     public boolean equals(char operator) {
@@ -465,18 +464,52 @@ Map<Character, Operation<Integer>> operationMap = new HashMap<>(){{
   put('%', new RemainderOperation<>());
 }};
 double result = calculator.calculate(num1, num2, operationMap.get(operator));
-
+```
+```java
 // 변경 후
 double result = calculator.calculate(num1, num2, OperatorType.getOperatorType(operator));
 ```
 
-허허... 정말 사기적이다.
+main메서드 개발자는 더이상, 어떤 기호가 Operation이 매칭되는지 일일이 정하지 않아도 된다.
+
+그것을 정의한 OperatorType이 있기 때문이다.
 
 <br/>
 
-각 타입의 내부 구현은 람다식으로 했는데, 
+### 람다식을 이용한 사칙연산
+
+객체지향의 다형성을 연습해본다는 데에 의의를 뒀었지만, 이미 구현한 부분에 대해서는 자유롭게 변경이 가능하다고 해서 기존 Operation들을 버리고 람다식으로 바꿔봤는데,
 
 이때 java.util.function 패키지(자주 쓰이는 형식의 메서드를 함수형 인터페이스로 미리 정의해둔 패키지)의 `BiFunction<T, U, R>` 인터페이스를 사용했다.
+
+```java
+import java.util.function.BiFunction;
+
+public enum OperatorType {
+    ADD('+', (value1, value2) -> value1.doubleValue() + value2.doubleValue()),
+    SUBTRACT('-', (value1, value2) -> value1.doubleValue() - value2.doubleValue()),
+    MULTIPLY('*', (value1, value2) -> value1.doubleValue() * value2.doubleValue()),
+    DIVIDE('/', (value1, value2) -> value1.doubleValue() / value2.doubleValue()),
+    REMAINDER('%', (value1, value2) -> value1.doubleValue() % value2.doubleValue());
+
+    private final BiFunction<Number, Number, Double> expression;
+    private final char operator;
+
+    OperatorType(char operator, BiFunction<Number, Number, Double> expression) {
+        this.operator = operator;
+        this.expression = expression;
+    }
+}
+```
+
+작성하고 비교해보니, 각각의 Operation 인스턴스를 생성하는 것 보다는 확실히 이게 더 좋은 것 같다.
+
+여기서 내린 객체지향을 쓰는 내 기준 2가지
+
+1. 제공되는 기능을 위해 내부 상태(멤버 변수)를 갖고 있거나 다른 private 메서드를 사용하는 복잡한 로직을 갖고 있을 때
+2. 다른 인퍼페이스와 의존관계를 맺어야 할 때
+
+물론 100% 결론내린 건 아니다. 지금의 내 기준이다.
 
 <br/>
 
@@ -544,6 +577,6 @@ double number Double.parseDouble(scanner.next("[-+]?[0-9]*\\.?[0-9]+"));
 
 지금 이 상태에서 Java Swing 하나하나 학습해가면서 Pannel꾸미고 이벤트 처리하고.. 이런 고민을 하는 것보다는,
 
-POJO 기반으로 어떻게 더 좋은 코드를 고민하는게 학습에 도움이 될 것 같다.
+POJO 기반으로 어떻게 더 좋은 코드를 작성할 수 있을지 고민하는게 학습에 도움이 될 것 같다.
 
 당분간 기능 추가같은 욕심은 버리고 기초부터 쌓자.
