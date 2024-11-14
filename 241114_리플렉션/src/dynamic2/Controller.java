@@ -1,4 +1,4 @@
-package dynamic1;
+package dynamic2;
 
 public class Controller {
     public String create() {
