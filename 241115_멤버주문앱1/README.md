@@ -2,7 +2,7 @@
 
 계산기 프로그램을 구현하다가 문득
 
-'콘솔에서 사용자 입력을 받아서 DB에 직접 저장하는 서비스를 만들 면 어떨까?'
+'콘솔에서 사용자 입력을 받아서 DB에 직접 저장하는 서비스를 만들면 어떨까?' 생각이 들었다.
 
 즉, CLIController를 만드는 것이다.
 
@@ -12,7 +12,7 @@ Service나 Repository 코드는 유지가 된다.
 
 <br/>
 
-어제 내가 만들어 둔 [DynamicMethodController](../241114_리플렉션)를 활용하여, 
+어제 내가 만들어 둔 [DynamicMethodCaller](../241114_리플렉션)를 활용하여, 
 
 Controller, Service, Repository **세 계층간의 의존 관계 관리에만 집중**적으로 고민하여,
 
