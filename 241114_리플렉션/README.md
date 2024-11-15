@@ -125,7 +125,7 @@ for (Method m : methodList) {
 
 ### 구현결과 및 개선할 점
 
-이 리플렉션을 적용하여, DynamicMethodCaller의 initializeMapping()과, 을 다음과 같이 작성했다.
+이 리플렉션을 적용하여, DynamicMethodCaller의 initializeMapping()과, executeMethod()를 다음과 같이 작성했다.
 
 ```java
 private static void initializeMapping() {
@@ -195,7 +195,7 @@ public @interface CommandMapping {
 
 ```
 
-`@Retention`은 애너테이션이 유지되는 범위를 의미하고, `@Target`은 적용할 타겟이 메서드인지 클래스인지를 지정한다. 더 자세한 내용은 [맨 아래 학습자료](#내배개)에서 구경하자.
+`@Retention`은 애너테이션이 유지되는 범위를 의미하고, `@Target`은 적용할 타겟이 메서드인지 클래스인지를 지정한다. 더 자세한 내용은 [맨 아래 학습자료](#메타-애너테이션)에서 구경하자.
 
 위와 같이 작성하면 우리 Controller에 다음과 같이 달아줄 수가 있다.
 
