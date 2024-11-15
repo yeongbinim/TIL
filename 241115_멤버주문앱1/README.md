@@ -12,7 +12,7 @@ Service나 Repository 코드는 유지가 된다.
 
 <br/>
 
-어제 내가 만들어 둔 [DynamicMethodController]()를 활용하여, 
+어제 내가 만들어 둔 [DynamicMethodController](../241114_리플렉션)를 활용하여, 
 
 Controller, Service, Repository **세 계층간의 의존 관계 관리에만 집중**적으로 고민하여,
 
@@ -37,7 +37,7 @@ Controller, Service, Repository **세 계층간의 의존 관계 관리에만 �
 
 따라서 여러 시리즈에 걸쳐서 아쉬운 부분들이 개선되는 여러 버전이 나올 것이다.
 
-
+[[ver1 코드 보러가기]](./src)
 
 <br/>
 
