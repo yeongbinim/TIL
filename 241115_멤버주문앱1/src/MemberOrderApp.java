@@ -1,5 +1,6 @@
 import config.ComponentScanner;
 import config.annotation.CommandMapping;
+import config.ApplicationContext;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 public class MemberOrderApp {
     private final static Map<String, Method> methodMap = new HashMap<>();
     private final static Map<String, Object> instanceMap = new HashMap<>();
+    private final static ApplicationContext context = new ApplicationContext(AppConfig.class);
 
     private static void initializeMapping() throws Exception {
         ComponentScanner componentScan = ComponentScanner.getInstance();
@@ -21,7 +23,7 @@ public class MemberOrderApp {
             if (clazz.isAnnotationPresent(CommandMapping.class)) {
                 basePath = clazz.getAnnotation(CommandMapping.class).value();
             }
-            Object instance = clazz.getDeclaredConstructor().newInstance();  // 인스턴스 생성
+            Object instance = context.getBean(clazz);
             instanceMap.put(clazz.getName(), instance);
             for (Method method : clazz.getDeclaredMethods()) {
                 if (method.isAnnotationPresent(CommandMapping.class)) {

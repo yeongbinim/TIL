@@ -7,7 +7,6 @@ import config.console.ConsoleInput;
 import order.model.Order;
 import order.model.OrderCreate;
 import order.service.OrderService;
-import order.service.OrderServiceImpl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,8 +14,11 @@ import java.util.stream.Collectors;
 @Controller
 @CommandMapping("/orders")
 public class OrderController {
-    private final AppConfig appConfig = new AppConfig();
-    private final OrderService orderService = appConfig.orderService();
+    private final OrderService orderService;
+
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     @CommandMapping(method = "POST")
     public String create() {

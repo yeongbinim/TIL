@@ -8,7 +8,6 @@ import member.model.MemberGrade;
 import config.console.ConsoleFormat;
 import config.console.ConsoleInput;
 import member.service.MemberService;
-import member.service.MemberServiceImpl;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,8 +15,11 @@ import java.util.stream.Collectors;
 @Controller
 @CommandMapping("/members")
 public class MemberController {
-    private final AppConfig appConfig = new AppConfig();
-    private final MemberService memberService = appConfig.memberService();
+    private final MemberService memberService;
+
+    public MemberController(MemberService memberService) {
+        this.memberService = memberService;
+    }
 
     @CommandMapping(method = "POST")
     public String create() {
