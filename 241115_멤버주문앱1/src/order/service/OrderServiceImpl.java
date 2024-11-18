@@ -12,9 +12,15 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class OrderServiceImpl implements OrderService {
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private final DiscountPolicy discountPolicy = new FixDiscountPolicy();
-    private final OrderRepository orderRepository = new MemoryOrderRepository();
+    private final OrderRepository orderRepository;
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+    public OrderServiceImpl(OrderRepository orderRepository, MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.orderRepository = orderRepository;
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
 
     @Override
     public Order createOrder(Long memberId, OrderCreate orderCreate) {

@@ -16,7 +16,8 @@ import java.util.stream.Collectors;
 @Controller
 @CommandMapping("/members")
 public class MemberController {
-    private final MemberService memberService = new MemberServiceImpl();
+    private final AppConfig appConfig = new AppConfig();
+    private final MemberService memberService = appConfig.memberService();
 
     @CommandMapping(method = "POST")
     public String create() {

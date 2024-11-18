@@ -15,7 +15,8 @@ import java.util.stream.Collectors;
 @Controller
 @CommandMapping("/orders")
 public class OrderController {
-    private final OrderService orderService = new OrderServiceImpl();
+    private final AppConfig appConfig = new AppConfig();
+    private final OrderService orderService = appConfig.orderService();
 
     @CommandMapping(method = "POST")
     public String create() {
