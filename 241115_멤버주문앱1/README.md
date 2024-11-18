@@ -37,7 +37,7 @@ Controller, Service, Repository **세 계층간의 의존 관계 관리에만 �
 
 따라서 여러 시리즈에 걸쳐서 아쉬운 부분들이 개선되는 여러 버전이 나올 것이다.
 
-[[ver1 코드 보러가기]](./src)
+[[ver1 코드 보러가기]](https://github.com/yeongbinim/TIL/commit/58aa3345f2e56d3b4b8a703284efa4ad540d2788)
 
 <br/>
 
