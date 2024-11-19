@@ -48,7 +48,13 @@ public class OrderServiceImpl implements OrderService {
 
 그리고, 이 클래스는 내가 **어떤 구현 클래스를 사용할 건지에 관심을 가짐과 동시에 내부 기능 구현에도 신경써야 하는 점**에서 어떻게 보면 SRP(단일 책임) 원칙을 지키지 않은 것이라 볼 수 있다.
 
-이걸 해결해보자
+이걸 해결해보기 위해 다음의 요구사항을 세웠다.
+
+- 리팩터링
+  - [x] 의존관계는 AppConfig 클래스에서만 관리
+- 기능추가
+  - [x] AppConfig를 리플렉션하여 의존관계대로 주입된 인스턴스를 ApplicationContext 관리하도록 하기
+  - [x] ApplicationContext는 하나의 인스턴스만 사용하는 걸 보장할 것
 
 
 
@@ -71,7 +77,7 @@ public class OrderServiceImpl implements OrderService {
 
 <br/>
 
-## 관계 지어주는 관심사 클래스 분리하기
+## 리팩터링: 관계 지어주는 관심사 클래스 분리하기
 
 [[코드 보러 가기]](https://github.com/yeongbinim/TIL/commit/6941597143bada9638976d8317a700284560da2a)
 
@@ -163,7 +169,7 @@ memberService를 호출할 때마다 새로운 인스턴스가 만들어진다�
 
 <br/>
 
-## 인스턴스 관리 컨테이너
+## 기능추가: 인스턴스 관리 컨테이너
 
 [[코드 보러 가기]](https://github.com/yeongbinim/TIL/commit/1869daf7e7c7b0ef06effdeb0b60aeabccfbce4b)
 
@@ -271,7 +277,7 @@ orderService()가 사용하는 memberRepository와 memberService()가 사용하�
 
 <br/>
 
-## CGLIB를 활용한 싱글턴 컨테이너
+## 기능추가: CGLIB를 활용한 싱글턴 컨테이너
 
 [[코드 보러 가기]](https://github.com/yeongbinim/TIL/commit/99f4f6f3e580ff970bf2458dc23e3917c3eb9a3e)
 
