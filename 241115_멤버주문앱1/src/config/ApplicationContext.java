@@ -1,6 +1,9 @@
 package config;
 
+import net.sf.cglib.proxy.Enhancer;
+import net.sf.cglib.proxy.MethodInterceptor;
 import config.annotation.Bean;
+import config.annotation.Configuration;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -17,6 +20,9 @@ public class ApplicationContext {
     private void register(Class<?> configClass) {
         try {
             Object configInstance = configClass.getDeclaredConstructor().newInstance();
+            if (configClass.isAnnotationPresent(Configuration.class)) {
+                configInstance = this.configure(configClass);
+            }
 
             for (Method method : configClass.getDeclaredMethods()) {
                 if (method.isAnnotationPresent(Bean.class)) {
@@ -28,6 +34,25 @@ public class ApplicationContext {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private Object configure(Class<?> configClass) {
+        Enhancer enhancer = new Enhancer();
+        enhancer.setSuperclass(configClass);
+        enhancer.setCallback((MethodInterceptor) (obj, method, args, proxy) -> {
+            String methodName = method.getName();
+            if (method.isAnnotationPresent(Bean.class) && singletonBeans.containsKey(methodName)) {
+                return singletonBeans.get(methodName);
+            }
+
+            Object result = proxy.invokeSuper(obj, args);
+            if (method.isAnnotationPresent(Bean.class)) {
+                singletonBeans.put(methodName, result);
+            }
+            return result;
+        });
+
+        return enhancer.create();
     }
 
     public <T> T getBean(String beanName, Class<T> beanType) {

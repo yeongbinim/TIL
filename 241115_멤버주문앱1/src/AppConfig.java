@@ -1,4 +1,5 @@
 import config.annotation.Bean;
+import config.annotation.Configuration;
 import member.controller.MemberController;
 import member.infrastructure.MemberRepository;
 import member.infrastructure.MemoryMemberRepository;
@@ -12,7 +13,7 @@ import order.service.OrderService;
 import order.service.OrderServiceImpl;
 import order.service.RateDiscountPolicy;
 
-
+@Configuration
 public class AppConfig {
     @Bean
     public MemberController memberController() {
