@@ -1,6 +1,8 @@
 package member.controller;
 
+import config.annotation.Autowired;
 import config.annotation.CommandMapping;
+import config.annotation.Component;
 import config.annotation.Controller;
 import config.console.ConsoleFormat;
 import config.console.ConsoleInput;
@@ -13,10 +15,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
+@Component
 @CommandMapping("/members")
 public class MemberController {
     private final MemberService memberService;
 
+    @Autowired
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }

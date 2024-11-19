@@ -1,8 +1,11 @@
 package member.infrastructure;
 
+import config.annotation.Component;
 import member.model.Member;
+
 import java.util.*;
 
+@Component
 public class MemoryMemberRepository implements MemberRepository {
     private static final Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;

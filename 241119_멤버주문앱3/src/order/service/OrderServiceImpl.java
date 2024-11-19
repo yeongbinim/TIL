@@ -1,5 +1,7 @@
 package order.service;
 
+import config.annotation.Autowired;
+import config.annotation.Component;
 import member.infrastructure.MemberRepository;
 import member.model.Member;
 import order.infrastructure.OrderRepository;
@@ -9,11 +11,13 @@ import order.model.OrderCreate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@Component
 public class OrderServiceImpl implements OrderService {
     private final OrderRepository orderRepository;
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
+    @Autowired
     public OrderServiceImpl(OrderRepository orderRepository, MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.orderRepository = orderRepository;
         this.memberRepository = memberRepository;

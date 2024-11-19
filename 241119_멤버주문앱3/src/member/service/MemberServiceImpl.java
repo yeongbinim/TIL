@@ -1,5 +1,7 @@
 package member.service;
 
+import config.annotation.Autowired;
+import config.annotation.Component;
 import member.infrastructure.MemberRepository;
 import member.model.Member;
 import member.model.MemberCreate;
@@ -7,9 +9,11 @@ import member.model.MemberCreate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+@Component
 public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
 
+    @Autowired
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

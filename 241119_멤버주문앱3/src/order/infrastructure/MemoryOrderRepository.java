@@ -1,5 +1,6 @@
 package order.infrastructure;
 
+import config.annotation.Component;
 import order.model.Order;
 
 import java.util.HashMap;
@@ -8,6 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@Component
 public class MemoryOrderRepository implements OrderRepository {
     private static final Map<Long, Order> store = new HashMap<>();
     private static long sequence = 0L;

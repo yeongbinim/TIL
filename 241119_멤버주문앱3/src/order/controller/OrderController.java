@@ -1,6 +1,8 @@
 package order.controller;
 
+import config.annotation.Autowired;
 import config.annotation.CommandMapping;
+import config.annotation.Component;
 import config.annotation.Controller;
 import config.console.ConsoleInput;
 import order.model.Order;
@@ -12,10 +14,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
+@Component
 @CommandMapping("/orders")
 public class OrderController {
     private final OrderService orderService;
 
+    @Autowired
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
     }

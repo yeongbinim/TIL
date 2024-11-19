@@ -1,8 +1,10 @@
 package order.service;
 
+import config.annotation.Component;
 import member.model.Member;
 import member.model.MemberGrade;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy {
     private final double discountRate = 0.1; //10% 할인
     @Override
