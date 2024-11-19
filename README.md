@@ -8,7 +8,7 @@
 | [JAVA계산기](./241112_JAVA계산기/)  | `Generic` |
 | [리플렉션으로 OCP 컨트롤러 만들기](./241114_리플렉션/)| `Reflection` |
 | [회원 주문 CLI 서비스 #1](./241115_멤버주문앱1/) | `3LayeredArchitecture` `DTO` |
-| [회원 주문 CLI 서비스 #2](./241116_멤버주문앱2)  | `Reflection` `동적Proxy` `CGLIB` |
+| [회원 주문 CLI 서비스 #2](./241118_멤버주문앱2)  | `Reflection` `동적Proxy` `CGLIB` |
 
 ## 프론트
 
