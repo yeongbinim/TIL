@@ -6,10 +6,10 @@ OCP 사나이가 되어보자!
 
 요구사항은 아래와같다.
 
-- 여러 메서드를 담고있는 `Controller`클래스와 main메서드가 있는 `DynamicMethodCaller`클래스로만 구성한다.
+- [x] 여러 메서드를 담고있는 `Controller`클래스와 main메서드가 있는 `DynamicMethodCaller`클래스로만 구성한다.
   - main에서는 콘솔로 메서드 이름을 입력받아 그에 맞는 Controller 클래스 내의 메서드가 호출되도록 한다.
 
-- `Controller` 클래스에 메서드를 하나 추가하고, `DynamicMethodCaller` 클래스의 변경없이 추가된 메서드가 실행되도록 한다.
+- [x] `Controller` 클래스에 메서드를 하나 추가하고, `DynamicMethodCaller` 클래스의 변경없이 추가된 메서드가 실행되도록 한다.
   - 이때, `Controller` 클래스 내부에는 사용자에 의해 실행될 메서드 이외에, 다른 메서드들은 존재하면 안된다.
 
 <br/>

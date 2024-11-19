@@ -56,7 +56,7 @@ public class OrderServiceImpl implements OrderService {
   - [x] AppConfig를 리플렉션하여 의존관계대로 주입된 인스턴스를 ApplicationContext 관리하도록 하기
   - [x] ApplicationContext는 하나의 인스턴스만 사용하는 걸 보장할 것
 
-
+[[전체 코드 보러 가기]](../241115_멤버주문앱1/src/)
 
 <br/>
 
@@ -79,7 +79,7 @@ public class OrderServiceImpl implements OrderService {
 
 ## 리팩터링: 관계 지어주는 관심사 클래스 분리하기
 
-[[코드 보러 가기]](https://github.com/yeongbinim/TIL/commit/6941597143bada9638976d8317a700284560da2a)
+[[변경된 코드 보러 가기]](https://github.com/yeongbinim/TIL/commit/6941597143bada9638976d8317a700284560da2a)
 
 우선 외부로부터 인스턴스를 주입받아 할당받는 식으로 하고, 클래스는 인터페이스에만 의존하도록 변경해야 한다.
 
@@ -171,7 +171,7 @@ memberService를 호출할 때마다 새로운 인스턴스가 만들어진다�
 
 ## 기능추가: 인스턴스 관리 컨테이너
 
-[[코드 보러 가기]](https://github.com/yeongbinim/TIL/commit/1869daf7e7c7b0ef06effdeb0b60aeabccfbce4b)
+[[변경된 코드 보러 가기]](https://github.com/yeongbinim/TIL/commit/1869daf7e7c7b0ef06effdeb0b60aeabccfbce4b)
 
 AppConfig안에 있는 메서드들을 모두 읽어서 해당 메서드를 미리 호출시켜놓고, 클라이언트 개발자는 이 컨테이너로부터 값을 꺼내 쓰도록 하자.
 
@@ -279,7 +279,7 @@ orderService()가 사용하는 memberRepository와 memberService()가 사용하�
 
 ## 기능추가: CGLIB를 활용한 싱글턴 컨테이너
 
-[[코드 보러 가기]](https://github.com/yeongbinim/TIL/commit/99f4f6f3e580ff970bf2458dc23e3917c3eb9a3e)
+[[변경된 코드 보러 가기]](https://github.com/yeongbinim/TIL/commit/99f4f6f3e580ff970bf2458dc23e3917c3eb9a3e)
 
 이전에 `memberRepository()`를 호출했으면, `orderService()`가 호출될때 내부적으로 `memberRepositoy()`가 호출되는 것을 막아야한다.
 
