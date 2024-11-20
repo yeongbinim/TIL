@@ -332,7 +332,7 @@ private Object createBeanInstance(Constructor<?> constructor, List<Class<?>> com
 }
 ```
 
-for문 안의 저 의사코드에 해당하는 실제 코드가 40줄이다... 머리가 잘 안굴러가서 작성만 4시간 넘게 했다.. 자세한 코드는 [[자동 주입 컨테이너 기능 추가 코드]](https://github.com/yeongbinim/TIL/commit/bd9ee63063a860467ee23aa76363528213a39534) 여기서 확인하자
+for문 안의 저 의사코드에 해당하는 실제 코드가 40줄이다... 머리가 잘 안굴러가서 작성만 4시간 넘게 했다.. 자세한 코드는 [[변경된 ApplicationContext 코드]](https://github.com/yeongbinim/TIL/commit/bd9ee63063a860467ee23aa76363528213a39534#diff-fd6d1ef61fd278a632d2bfbd48268a1337c210d044e58ff816392c7079ead470R23) 여기서 확인하자
 
 <br/>
 
