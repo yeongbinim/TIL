@@ -4,8 +4,9 @@
 
 | 포스트                       | 태그            |
 | ----------------------------- | ------------- |
-| [JAVA기초](./241111_JAVA기초) | `Collection` |
-| [JAVA계산기](./241112_JAVA계산기)  | `Generic` |
+| [JAVA 기초](./241111_JAVA기초) | `Collection` |
+| [JAVA 계산기](./241112_JAVA계산기)  | `Interface` `Enum` |
+| [JAVA 계산기 최종](./241120_JAVA제네릭계산기)  | `Generic` |
 | [리플렉션으로 OCP 컨트롤러 만들기](./241114_리플렉션)| `Reflection` `Annotation` |
 | [회원 주문 CLI 서비스 #1](./241115_멤버주문앱1) | `3LayeredArchitecture` `DTO` |
 | [회원 주문 CLI 서비스 #2](./241118_멤버주문앱2)  | `동적Proxy` `CGLIB` `@Bean` `@Configuration` |
