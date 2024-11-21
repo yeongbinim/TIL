@@ -6,14 +6,14 @@ import java.util.Scanner;
 public class Kiosk {
     List<MenuItem> menuItemList;
 
-    public Kiosk(MenuItem...menu) {
+    public Kiosk(MenuItem ...menu) {
         menuItemList = List.of(menu);
     }
 
     public void start() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println(formatList(menuItemList));
+            System.out.println(formatMenuItem());
             System.out.printf("%2d. %s\n\n", 0, "종료");
             System.out.print("메뉴를 입력하세요: ");
 
@@ -27,10 +27,10 @@ public class Kiosk {
         scanner.close();
     }
 
-    private String formatList(List<?> list) {
+    private String formatMenuItem() {
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < list.size(); i++) {
-            builder.append(String.format("\n%2d. %s", i + 1, list.get(i)));
+        for (int i = 0; i < menuItemList.size(); i++) {
+            builder.append(String.format("\n%2d. %s", i + 1, menuItemList.get(i)));
         }
         return builder.toString();
     }

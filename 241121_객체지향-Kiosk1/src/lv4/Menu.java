@@ -15,8 +15,12 @@ public class Menu {
         return name;
     }
 
-    public List<MenuItem> getMenuItems() {
-        return List.copyOf(menuItems);
+    public String formatMenuItems() {
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < menuItems.size(); i++) {
+            builder.append(String.format("\n%2d. %s", i + 1, menuItems.get(i)));
+        }
+        return builder.toString();
     }
 
     public String getMenuItemInfo(int index) {

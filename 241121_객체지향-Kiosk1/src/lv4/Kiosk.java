@@ -13,7 +13,7 @@ public class Kiosk {
     public void start() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println(formatList(menuList));
+            System.out.println(formatMenus());
             System.out.printf("%2d. %s\n\n", 0, "종료");
             System.out.print("메뉴를 입력하세요: ");
 
@@ -22,7 +22,7 @@ public class Kiosk {
                 break;
             }
 
-            System.out.println(formatList(menuList.get(menuNumber - 1).getMenuItems()));
+            System.out.println(menuList.get(menuNumber - 1).formatMenuItems());
             System.out.printf("%2d. %s\n\n", 0, "뒤로가기");
             System.out.print("메뉴 아이템을 입력하세요: ");
             int menuItemNumber = scanner.nextInt();
@@ -35,10 +35,10 @@ public class Kiosk {
         scanner.close();
     }
 
-    private String formatList(List<?> list) {
+    private String formatMenus() {
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < list.size(); i++) {
-            builder.append(String.format("\n%2d. %s", i + 1, list.get(i)));
+        for (int i = 0; i < menuList.size(); i++) {
+            builder.append(String.format("\n%2d. %s", i + 1, menuList.get(i)));
         }
         return builder.toString();
     }
