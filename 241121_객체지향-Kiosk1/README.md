@@ -33,6 +33,7 @@
 
 각 클래스간의 관계를 어느정도 그려보았다. MenuItem이 n개일때 Menu는 1개이고, Menu가 n개일 때, Kiosk는 1개이다.
 
+
 <div align="center"><img width="600" alt="스크린샷 2024-11-21 오후 8 19 45" src="https://github.com/user-attachments/assets/75edb90c-d0c0-4d00-8fea-a0d0eb8b6e96"></div>
 
 
@@ -47,9 +48,35 @@ A → B를 'A가 B를 의존한다' 라고 하면, 일반적인 도메인 모델
 
 <div align="center"><img width="600" src="https://github.com/user-attachments/assets/27dfc2c4-8cbc-4513-9179-61ccb969de68" /></div>
 
-이렇게 되면, Kiosk에는 `List<Menu>`, Menu는 `List<MenuItem>` 를 갖고 있어야 하는데..
+우선 요구사항대로 이렇게 한 후에 추가 고민한 글에 대해서 적어보려 한다. 아래는 최종 클래스 다이어그램이다.
 
-우선 요구사항대로 이렇게 한 후에 추가 고민한 글에 대해서 적어보려 한다.
+```mermaid
+classDiagram
+
+class Kiosk {
+- menuList: Menu[]
++ start()
+}
+
+class Menu {
+- name
+- menuItemList: MenuItem[]
++ getMenuItemsInfo() String
++ getMenuItemInfoById() String
+}
+
+class MenuItem {
+- name
+- price
+- description
++ toString() String
+}
+
+Kiosk "1" --> "n" Menu
+
+Menu "1" --> "n" MenuItem
+
+```	
 
 
 <br/>
