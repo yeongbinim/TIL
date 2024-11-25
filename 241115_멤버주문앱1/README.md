@@ -18,7 +18,7 @@ Controller, Service, Repository **세 계층간의 의존 관계 관리에만 �
 
 스프링이 어떻게 의존관리를 하는지에 대한 간단한 원리를 이해해보려고 요구사항을 아래와 같이 만들었다.
 
-
+<div align="center"><img src="https://github.com/user-attachments/assets/446c2345-3252-4af3-9198-ed33575e0fc1" width="700"/></div>
 
 - 기술 요구사항
   - [x] CLI 환경에서 사용자로부터 입력을 받아 기능 요구사항을 구현한다.
@@ -36,6 +36,7 @@ Controller, Service, Repository **세 계층간의 의존 관계 관리에만 �
 이번 요구사항은 하루 만에 내가 원하는 결과물이 나올 것 같지 않다.
 
 따라서 여러 시리즈에 걸쳐서 아쉬운 부분들이 개선되는 여러 버전이 나올 것이다.
+
 
 [[ver1 코드 보러가기]](https://github.com/yeongbinim/TIL/commit/58aa3345f2e56d3b4b8a703284efa4ad540d2788)
 
