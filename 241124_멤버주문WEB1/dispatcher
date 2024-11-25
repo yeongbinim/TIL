@@ -1,0 +1,33 @@
+#!/bin/bash
+# Wrapper 스크립트: 요청 경로에 따라 적절한 Java 클래스 실행
+
+JAVA_HOME=/Users/yeim/Library/Java/JavaVirtualMachines/openjdk-23.0.1/Contents/Home
+JAVA_PATH=$JAVA_HOME/bin/java
+CGI_BIN_PATH=/opt/homebrew/var/www/cgi-bin/class
+
+# 요청 URL에서 경로 추출
+SCRIPT_NAME=$(basename "$REQUEST_URI")
+
+# Java 클래스 이름 결정
+case "$SCRIPT_NAME" in
+    member_list)
+        CLASS_NAME="member_list"
+        ;;
+    member_save)
+        CLASS_NAME="member_save"
+        ;;
+    member_form)
+        CLASS_NAME="member_form"
+        ;;
+    *)
+        # 잘못된 경로인 경우 404 응답
+        echo "Content-Type: text/plain"
+        echo
+        echo "404 Not Found: $SCRIPT_NAME"
+        exit 1
+        ;;
+esac
+
+$JAVA_PATH -cp "$CGI_BIN_PATH" "$SCRIPT_NAME"
+
+echo "Process ID: $$"
