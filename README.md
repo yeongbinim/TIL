@@ -13,6 +13,7 @@
 | [회원 주문 CLI 서비스 #1](./241115_멤버주문앱1) | `3LayeredArchitecture` `DTO` |
 | [회원 주문 CLI 서비스 #2](./241118_멤버주문앱2)  | `동적Proxy` `CGLIB` `@Bean` `@Configuration` |
 | [회원 주문 CLI 서비스 #3](./241119_멤버주문앱3) | `Class Loader` `@Component` `@ComponentScan` `@Autowired` |
+| [회원 주문 WEB 서비스 #1](./241124_멤버주문WEB1) | `CGI` `Apache` |
 
 ## 프론트
 
@@ -28,4 +29,3 @@
 | 포스트                       | 태그              |
 | ----------------------------- | ------------- |
 | [git기초](./241104_git기초) | `git` `github` |
-| [멤버주문WEB1](./241123_멤버주문WEB1) |  |
