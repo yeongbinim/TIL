@@ -14,6 +14,7 @@
 | [회원 주문 CLI 서비스 #2](./241118_멤버주문앱2)  | `동적Proxy` `CGLIB` `@Bean` `@Configuration` |
 | [회원 주문 CLI 서비스 #3](./241119_멤버주문앱3) | `Class Loader` `@Component` `@ComponentScan` `@Autowired` |
 | [회원 주문 WEB 서비스 #1](./241124_멤버주문WEB1) | `CGI` `Apache` |
+| [회원 주문 WEB 서비스 #2](./241126_멤버주문WEB2) | `Tomcat` `JSP` |
 
 ## 프론트
 
