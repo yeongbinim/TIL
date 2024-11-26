@@ -7,14 +7,14 @@
 | [JAVA 기초](./241111_JAVA기초) | `Collection` |
 | [JAVA 계산기](./241112_JAVA계산기)  | `Interface` `Enum` |
 | [JAVA 계산기 최종](./241120_JAVA제네릭계산기)  | `Generic` |
-| [객체지향 키오스크1](./241121_객체지향-Kiosk1) | `Object` |
-| [객체지향-Theater](./241122_객체지향-Theater) | `Object` |
+| [객체지향 키오스크1](./241121_객체지향-Kiosk1) | `OOP` |
+| [객체지향-Theater](./241122_객체지향-Theater) | `OOP` |
 | [리플렉션으로 OCP 컨트롤러 만들기](./241114_리플렉션)| `Reflection` `Annotation` |
 | [회원 주문 CLI 서비스 #1](./241115_멤버주문앱1) | `3LayeredArchitecture` `DTO` |
 | [회원 주문 CLI 서비스 #2](./241118_멤버주문앱2)  | `동적Proxy` `CGLIB` `@Bean` `@Configuration` |
 | [회원 주문 CLI 서비스 #3](./241119_멤버주문앱3) | `Class Loader` `@Component` `@ComponentScan` `@Autowired` |
-| [회원 주문 WEB 서비스 #1](./241124_멤버주문WEB1) | `CGI` `Apache` |
-| [회원 주문 WEB 서비스 #2](./241126_멤버주문WEB2) | `Tomcat` `JSP` |
+| [회원 주문 WEB 서비스 #1](./241124_멤버주문WEB1) | `Apache` `CGI` |
+| [회원 주문 WEB 서비스 #2](./241126_멤버주문WEB2) | `Tomcat` `Servlet` `JSP` |
 
 ## 프론트
 
