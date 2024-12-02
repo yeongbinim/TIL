@@ -16,7 +16,7 @@
 | [회원 주문 WEB 서비스 #1](./241124_멤버주문WEB1) | `Apache` `CGI` |
 | [회원 주문 WEB 서비스 #2](./241126_멤버주문WEB2) | `Tomcat` [`Servlet`](./241126_멤버주문WEB2/Servlet.md) `JSP` |
 | [회원 주문 WEB 서비스 #3](./241129_멤버주문WEB3) | `MVC패턴` |
-| [회원 주문 WEB 서비스 #4](./241130_멤버주문WEB4) | `dispatcher서블릿` `Adaptor패턴` |
+| [회원 주문 WEB 서비스 #4](./241130_멤버주문WEB4) | [`dispatcher서블릿`](./241130_멤버주문WEB4/DispatcherServlet.md) `Adaptor패턴` |
 
 ## 프론트
 
