@@ -17,6 +17,7 @@
 | [회원 주문 WEB 서비스 #2](./241126_멤버주문WEB2) | `Tomcat` [`Servlet`](./241126_멤버주문WEB2/Servlet.md) `JSP` |
 | [회원 주문 WEB 서비스 #3](./241129_멤버주문WEB3) | `MVC패턴` |
 | [회원 주문 WEB 서비스 #4](./241130_멤버주문WEB4) | [`dispatcher서블릿`](./241130_멤버주문WEB4/DispatcherServlet.md) `Adaptor패턴` |
+| [회원 주문 WEB 서비스 #5](./241202_멤버주문WEB5) | `@Controller` `@RequestMapping` `PRG` |
 
 ## 프론트
 

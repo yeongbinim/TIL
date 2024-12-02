@@ -6,9 +6,9 @@
 <body>
 <h1>Member Saved Successfully</h1>
 <ul>
-    <li th:value="${member.id}">id</li>
-    <li th:value="${member.name}">name</li>
-    <li th:value="${member.password}">password</li>
+    <li th:text="${member.id}">id</li>
+    <li th:text="${member.name}">name</li>
+    <li th:text="${member.password}">password</li>
 </ul>
 <button onclick="location.href='members.html'"
         th:onclick="|location.href='@{/members}'|"
