@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Member Saved Successfully</h1>
+<ul>
+    <li th:value="${member.id}">id</li>
+    <li th:value="${member.name}">name</li>
+    <li th:value="${member.password}">password</li>
+</ul>
+<button onclick="location.href='members.html'"
+        th:onclick="|location.href='@{/members}'|"
+        type="button">
+    목록으로
+</button>
+</body>
+</html>

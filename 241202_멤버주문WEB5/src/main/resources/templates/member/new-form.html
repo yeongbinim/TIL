@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="new-form.html" th:action="@{/members/add}" method="post">
+    username: <input type="text" name="name" />
+    password: <input type="password" name="password" />
+    <button type="submit">전송</button>
+</form>
+</body>
+</html>
