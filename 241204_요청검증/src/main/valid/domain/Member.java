@@ -1,34 +1,36 @@
 package valid.domain;
 
-public class Member {
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
-    private Long id;
+public class MemberCreate {
+
+    @NotBlank
+    @Pattern(
+        regexp = "^[a-z][a-zA-Z0-9]{3,13}$",
+        message = "영어와 숫자로만, 첫 글자는 소문자, 최소 4자, 최대 14자"
+    )
     private String name;
+
+    @NotBlank
+    @Pattern(
+        regexp = "^[A-Z][a-zA-Z0-9]{3,13}$",
+        message = "영어와 숫자로만, 첫 글자는 대문자, 최소 4자, 최대 14자"
+    )
     private String password;
+
+    @NotNull
+    @Min(1_000)
+    @Max(1_000_000)
     private Integer money;
 
-    public Member(Long id, String name, String password, Integer money) {
-        this.id = id;
+    public MemberCreate(String name, String password, Integer money) {
         this.name = name;
         this.password = password;
         this.money = money;
-    }
-
-    public static Member from(MemberCreate memberCreate) {
-        return new Member(
-            null,
-            memberCreate.getName(),
-            memberCreate.getPassword(),
-            memberCreate.getMoney()
-        );
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
