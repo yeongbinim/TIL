@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+<h1>Member List</h1>
+<table>
+  <thead>
+  <th>id</th>
+  <th>username</th>
+  <th>mondey</th>
+  <th>password</th>
+  </thead>
+  <tbody>
+  <tr th:each="member : ${members}">
+    <td th:text="${member.id}">회원id</td>
+    <td th:text="${member.name}">이름</td>
+    <td th:text="${member.money}">가진돈</td>
+    <td th:text="${member.password}">비밀번호</td>
+  </tr>
+  </tbody>
+  <button onclick="location.href='new-form.html'"
+          th:onclick="|location.href='@{/members/add}'|" type="button">
+    회원 등록
+  </button>
+</table>
+</body>
+</html>
