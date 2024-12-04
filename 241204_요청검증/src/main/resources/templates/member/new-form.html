@@ -10,21 +10,21 @@
   </style>
 </head>
 <body>
-<form action="new-form.html" th:action="@{/members/add}" method="post">
-  <div th:if="${errors?.containsKey('globalError')}">
-    <p class="error" th:text="${errors['globalError']}">전체 오류 메시지</p>
+<form action="new-form.html" th:action="@{/members/add}" th:object="${member}" method="post">
+  <div th:if="${#fields.hasGlobalErrors()}">
+    <p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${err}">글로벌 오류 메시지</p>
   </div>
   <div>
-    username: <input type="text" name="name"/>
-    <p class="error" th:if="${errors?.containsKey('name')}" th:text="${errors['name']}"></p>
+    username: <input type="text" name="name" th:field="*{name}"/>
+    <p class="error" th:errors="*{name}"></p>
   </div>
   <div>
-    password: <input type="password" name="password"/>
-    <p class="error" th:if="${errors?.containsKey('password')}" th:text="${errors['password']}"></p>
+    password: <input type="password" name="password" th:field="*{password}"/>
+    <p class="error" th:errors="*{password}"></p>
   </div>
   <div>
-    money: <input type="number" name="money"/>
-    <p class="error" th:if="${errors?.containsKey('money')}" th:text="${errors['money']}"></p>
+    money: <input type="text" name="money" th:field="*{money}"/>
+    <p class="error" th:errors="*{money}"></p>
   </div>
   <button type="submit">전송</button>
 </form>
