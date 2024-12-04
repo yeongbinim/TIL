@@ -3,12 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
 </head>
 <body>
 <form action="new-form.html" th:action="@{/members/add}" method="post">
-  username: <input type="text" name="name"/>
-  money: <input type="number" name="money"/>
-  password: <input type="password" name="password"/>
+  <div th:if="${errors?.containsKey('globalError')}">
+    <p class="error" th:text="${errors['globalError']}">전체 오류 메시지</p>
+  </div>
+  <div>
+    username: <input type="text" name="name"/>
+    <p class="error" th:if="${errors?.containsKey('name')}" th:text="${errors['name']}"></p>
+  </div>
+  <div>
+    password: <input type="password" name="password"/>
+    <p class="error" th:if="${errors?.containsKey('password')}" th:text="${errors['password']}"></p>
+  </div>
+  <div>
+    money: <input type="number" name="money"/>
+    <p class="error" th:if="${errors?.containsKey('money')}" th:text="${errors['money']}"></p>
+  </div>
   <button type="submit">전송</button>
 </form>
 </body>
