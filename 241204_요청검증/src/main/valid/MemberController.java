@@ -52,32 +52,28 @@ public class MemberController {
         BindingResult bindingResult,
         RedirectAttributes redirectAttributes) {
 
-        //필드 검증
+        // 필드 검증
         if (!StringUtils.hasText(memberCreate.getName())
             || !memberCreate.getName().matches("^[a-z][a-zA-Z0-9]{3,13}$")) {
-            bindingResult.addError(
-                new FieldError("member", "name", memberCreate.getName(), false, null, null,
-                    "영어와 숫자로만, 첫 글자는 소문자, 최소 4자, 최대 14자"));
+            bindingResult.rejectValue("name", "name.error",
+                "영어와 숫자로만, 첫 글자는 소문자, 최소 4자, 최대 14자");
         }
         if (!StringUtils.hasText(memberCreate.getPassword())
             || !memberCreate.getPassword().matches("^[A-Z][a-zA-Z0-9]{3,13}$")) {
-            bindingResult.addError(
-                new FieldError("member", "password", memberCreate.getPassword(), false, null, null,
-                    "영어와 숫자로만, 첫 글자는 대문자, 최소 4자, 최대 14자"));
+            bindingResult.rejectValue("password", "password.error",
+                "영어와 숫자로만, 첫 글자는 대문자, 최소 4자, 최대 14자");
         }
         if (memberCreate.getMoney() == null
             || memberCreate.getMoney() < 1_000
             || memberCreate.getMoney() > 1_000_000) {
-            bindingResult.addError(
-                new FieldError("member", "money", memberCreate.getMoney(), false, null, null,
-                    "금액은 1,000원 이상 1,000,000원 이하로만 가능합니다."));
+            bindingResult.rejectValue("money", "money.error",
+                "금액은 1,000원 이상 1,000,000원 이하로만 가능합니다.");
         }
 
         //복합 검증
-        if (memberCreate.getName().startsWith("admin")
-            && !memberCreate.getPassword().startsWith("admin")) {
-            bindingResult.addError(
-                new ObjectError("member", null, null, "사용할 수 없는 아이디와 비밀번호 조합 입니다."));
+        if (memberCreate.getName().startsWith("admin") &&
+            !memberCreate.getPassword().startsWith("admin")) {
+            bindingResult.reject("member.combination.error", "사용할 수 없는 아이디와 비밀번호 조합입니다.");
         }
 
         //검증에 실패하면 다시 입력 폼으로
