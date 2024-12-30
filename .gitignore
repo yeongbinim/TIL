@@ -1,5 +1,7 @@
 .DS_Store
 
-inbox/
+draft/
 
 addTIL.sh
+
+addTIL.app
