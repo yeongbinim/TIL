@@ -106,7 +106,6 @@ public ResponseEntity<String> ownerOnly(@Auth AuthUser authUser) {...}
 ```java
 @Aspect
 @Component
-@RequiredArgsConstructor
 public class AuthCheckAspect {
   @Before("@annotation(com.example.demo.annotation.OwnerCheck)")
   public void ownerCheck(JoinPoint joinPoint) {
